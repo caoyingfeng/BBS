@@ -1,4 +1,5 @@
 {% extends 'cms/cms_base.html' %}
+{% from "common/_macros.html" import static %}
 
 {% block title -%}
     修改密码
@@ -14,6 +15,7 @@
             width:300px;
         }
     </style>
+    <script src="{{ static("cms/js/resetpwd.js") }}"></script>
 {% endblock %}
 
 {% block main_content %}
@@ -38,7 +40,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary">立即保存</button>
+                <button class="btn btn-primary" id="submit">立即保存</button>
             </div>
         </div>
 

@@ -1,10 +1,10 @@
 from flask import Blueprint,views, render_template, request,session,redirect\
-    ,url_for, g
-from .forms import LoginForm
+    ,url_for, g, jsonify
+from .forms import LoginForm,ResetpwdForm
 from .models import CMSUser
 from .decorators import login_required
 import config
-
+from exts import db
 
 bp = Blueprint('cms',__name__,url_prefix='/cms')
 
@@ -48,7 +48,7 @@ class LoginView(views.MethodView):
                 return self.get(message='邮箱或密码错误')
         else:
             print(form.errors)
-            message = form.errors.popitem()[1][0]
+            message = form.get_error()
             return self.get(message)
 
 
@@ -58,7 +58,19 @@ class ResetPwdView(views.MethodView):
         return render_template('cms/cms_resetpwd.html')
 
     def post(self):
-        pass
+        form = ResetpwdForm(request.form)
+        if form.validate():
+            oldpwd = form.oldpwd.data
+            newpwd = form.newpwd.data
+            user = g.cms_user
+            if user.check_password(oldpwd):
+                user.password = newpwd
+                db.session.commit()
+                #{"code": 200,"message":""}
+                return jsonify({"code":200, "message":""})
+        else:
+            message = form.get_error()
+            return jsonify({"code":400, "message":message})
 
 
 bp.add_url_rule('/login/',view_func=LoginView.as_view('login'))
