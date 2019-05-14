@@ -1,8 +1,10 @@
-from flask import Blueprint,views, render_template, request,session,redirect,url_for
+from flask import Blueprint,views, render_template, request,session,redirect\
+    ,url_for, g
 from .forms import LoginForm
 from .models import CMSUser
 from .decorators import login_required
 import config
+
 
 bp = Blueprint('cms',__name__,url_prefix='/cms')
 
@@ -11,6 +13,17 @@ bp = Blueprint('cms',__name__,url_prefix='/cms')
 @login_required
 def index():
     return render_template('cms/cms_index.html')
+
+@bp.route('/logout/')
+@login_required
+def logout():
+    del session[config.CMS_USER_ID]
+    return redirect(url_for('cms.login'))
+
+@bp.route('/profile/')
+@login_required
+def profile():
+    return render_template('cms/cms_profile.html')
 
 
 class LoginView(views.MethodView):
@@ -39,4 +52,14 @@ class LoginView(views.MethodView):
             return self.get(message)
 
 
-bp.add_url_rule('/login/',endpoint='login',view_func=LoginView.as_view('login'))
+class ResetPwdView(views.MethodView):
+    decorators = [login_required]
+    def get(self):
+        return render_template('cms/cms_resetpwd.html')
+
+    def post(self):
+        pass
+
+
+bp.add_url_rule('/login/',view_func=LoginView.as_view('login'))
+bp.add_url_rule('/resetpwd/',view_func=ResetPwdView.as_view('resetpwd'))

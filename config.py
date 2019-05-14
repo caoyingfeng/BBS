@@ -1,7 +1,7 @@
 import os
 
 SECRET_KEY = os.urandom(24)
-
+TEMPLATES_AUTO_RELOAD = True
 DEBUG = True
 
 DB_USERNAME = 'root'
@@ -17,5 +17,6 @@ DB_URI = 'mysql+pymysql://%s:%s@%s:%s/%s?charset=utf8' % (DB_USERNAME,DB_PASSWOR
 SQLALCHEMY_DATABASE_URI = DB_URI
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+CMS_USER_ID = "FEIA"
 
-CMS_USER_ID = 'ADCED'
+
