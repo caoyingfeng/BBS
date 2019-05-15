@@ -14,7 +14,7 @@ $(function () {
 
         // 1.要在模板的meta标签中渲染一个csrf-token
         // 2.在ajax请求的头部中设置X-CSRFtoken
-        zlajax.post({
+        myajax.post({
             'url': '/cms/resetpwd/',
             'data': {
                 'oldpwd': oldpwd,
