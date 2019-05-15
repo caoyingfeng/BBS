@@ -22,10 +22,21 @@ $(function () {
                 'newpwd2': newpwd2
             },
             'success':function (data) {
-                console.log(data);
+                // code=200
+                // code!=200
+                if(data['code']==200){
+                    // 弹出框
+                    myalert.alertSuccessToast("恭喜！密码修改成功");
+                    oldpwdE.val("");
+                    newpwdE.val("");
+                    newpwd2E.val("");
+                }else{
+                    var message = data['message'];
+                    myalert.alertInfo(message);
+                }
             },
             'fail': function (error) {
-                console.log(error)
+                myalert.alertNetworkError();
             }
         });
 
