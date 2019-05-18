@@ -7,7 +7,7 @@ from apps.cms import models as cms_models
 
 CMSUser = cms_models.CMSUser
 CMSRole = cms_models.CMSRole
-CMSPermission = cms_models.CMSPersmission
+CMSPermission = cms_models.CMSPermission
 
 app = create_app()
 
@@ -30,7 +30,7 @@ def create_cms_user(username,password,email):
 @manager.command
 def create_role():
     # 1. 访问者（可以修改个人信息）
-    visitor = CMSRole(name='访问者', desc='只能相关数据，不能修改。')
+    visitor = CMSRole(name='访问者', desc='只能访问相关数据，不能修改。')
     visitor.permissions = CMSPermission.VISITOR
 
     # 2. 运营角色（修改个人个人信息，管理帖子，管理评论，管理前台用户）
