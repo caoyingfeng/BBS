@@ -1,16 +1,18 @@
 {% extends "cms/cms_base.html" %}
 {% from "common/_macros.html" import static %}
+
 {% block title -%}
     修改邮箱
 {%- endblock %}
 
 {% block head %}
-    <script src="{{ static("cms/js/resetemail.js") }}" ></script>
+
+    <script src="{{ static('cms/js/resetemail.js') }}"></script>
 {% endblock %}
 
-{% block page_title %}
+{% block page_title -%}
     {{ self.title() }}
-{% endblock %}
+{%- endblock %}
 
 {% block main_content %}
     <form action="" method="post">
@@ -18,7 +20,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <input type="email" class="form-control" name="email" placeholder="新邮箱">
-                    <span class="input-group-addon" id="captcha-btn" style="cursor: pointer">获取验证码</span>
+                    <span class="input-group-addon" id="captcha-btn" style="cursor:pointer;">获取验证码</span>
                 </div>
             </div>
             <div class="form-group">

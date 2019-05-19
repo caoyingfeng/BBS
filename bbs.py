@@ -3,7 +3,7 @@ from apps.cms import bp as cms_bp
 from apps.common import bp as common_bp
 from apps.front import bp as front_bp
 import config
-from exts import db
+from exts import db, mail
 from flask_wtf import CSRFProtect
 
 
@@ -16,6 +16,7 @@ def create_app():
     app.register_blueprint(front_bp)
 
     db.init_app(app)
+    mail.init_app(app)
     CSRFProtect(app)
     return app
 

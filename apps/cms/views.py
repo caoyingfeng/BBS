@@ -1,11 +1,13 @@
 from flask import Blueprint,views, render_template, request,session,redirect\
     ,url_for, g, jsonify
-from .forms import LoginForm,ResetpwdForm
+from .forms import LoginForm,ResetpwdForm, ResetEmailForm
 from .models import CMSUser, CMSPermission
 from .decorators import login_required, permission_required
 import config
-from exts import db
-from utils import restful
+from exts import db, mail
+from flask_mail import Message
+from utils import restful, mycache
+import string, random
 
 bp = Blueprint('cms',__name__,url_prefix='/cms')
 
@@ -27,6 +29,70 @@ def logout():
 @login_required
 def profile():
     return render_template('cms/cms_profile.html')
+
+
+@bp.route('/email_captcha/')
+def email_captcha():
+    # /email_capthca/?email=xxx@qq.com
+    email = request.args.get('email')
+    if not email:
+        return restful.param_error('请传递邮箱参数！')
+
+    # source.extend(["0","1","2","3","4","5","6","7","8","9"])
+    source = list(string.ascii_letters)
+    source.extend(map(lambda x:str(x),range(0,10)))
+    captcha = "".join(random.sample(source,6))
+
+    # 给这个邮箱发送邮件
+    message = Message('Python论坛邮箱验证码',recipients=[email],body='您的验证码是：%s'%captcha)
+    try:
+        mail.send(message)
+    except:
+        return restful.server_error()
+    mycache.set(email,captcha)
+    return restful.success()
+
+
+@bp.route('/posts/')
+@login_required
+@permission_required(CMSPermission.POSTER)
+def posts():
+    return render_template('cms/cms_posts.html')
+
+
+@bp.route('/comments/')
+@login_required
+@permission_required(CMSPermission.COMMENTER)
+def comments():
+    return render_template('cms/cms_comments.html')
+
+
+@bp.route('/boards/')
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def boards():
+    return render_template('cms/cms_boards.html')
+
+
+@bp.route('/fusers/')
+@login_required
+@permission_required(CMSPermission.FRONTUSER)
+def fusers():
+    return render_template('cms/cms_fusers.html')
+
+
+@bp.route('/cusers/')
+@login_required
+@permission_required(CMSPermission.CMSUSER)
+def cusers():
+    return render_template('cms/cms_cusers.html')
+
+
+@bp.route('/croles/')
+@login_required
+@permission_required(CMSPermission.ALL_PERMISSION)
+def croles():
+    return render_template('cms/cms_croles.html')
 
 
 class LoginView(views.MethodView):
@@ -78,47 +144,21 @@ class ResetPwdView(views.MethodView):
             return restful.param_error(form.get_error())
 
 
-@bp.route('/posts/')
-@login_required
-@permission_required(CMSPermission.POSTER)
-def posts():
-    return render_template('cms/cms_posts.html')
-
-
-@bp.route('/comments/')
-@login_required
-@permission_required(CMSPermission.COMMENTER)
-def comments():
-    return render_template('cms/cms_comments.html')
-
-
-@bp.route('/boards/')
-@login_required
-@permission_required(CMSPermission.BOARDER)
-def boards():
-    return render_template('cms/cms_boards.html')
-
-
-@bp.route('/fusers/')
-@login_required
-@permission_required(CMSPermission.FRONTUSER)
-def fusers():
-    return render_template('cms/cms_fusers.html')
-
-
-@bp.route('/cusers/')
-@login_required
-@permission_required(CMSPermission.CMSUSER)
-def cusers():
-    return render_template('cms/cms_cusers.html')
-
-
-@bp.route('/croles/')
-@login_required
-@permission_required(CMSPermission.ALL_PERMISSION)
-def croles():
-    return render_template('cms/cms_croles.html')
+class ResetEmailView(views.MethodView):
+    decorators = [login_required]
+    def get(self):
+        return render_template('cms/cms_resetemail.html')
+    def post(self):
+        form = ResetEmailForm(request.form)
+        if form.validate():
+            email = form.email.data
+            g.cms_user.email = email
+            db.session.commit()
+            return restful.success()
+        else:
+            return restful.param_error(form.get_error())
 
 
 bp.add_url_rule('/login/',view_func=LoginView.as_view('login'))
 bp.add_url_rule('/resetpwd/',view_func=ResetPwdView.as_view('resetpwd'))
+bp.add_url_rule('/resetemail/',view_func=ResetEmailView.as_view('resetemail'))
