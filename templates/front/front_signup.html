@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="{{ static("front/css/front_signup.css") }}">
     <script src="{{ static("front/js/front_signup.js") }}"></script>
     <script src="{{ static("common/myparam.js") }}"></script>
+    <script src="{{ static('common/myajax.js') }}"></script>
+    <link rel="stylesheet" href="{{ static("common/sweetalert/sweetalert.css") }}">
+    <script src="{{ static("common/sweetalert/sweetalert.min.js") }}"></script>
+    <script src="{{ static("common/sweetalert/myalert.js") }}"></script>
 </head>
 <body>
     <div class="outer-box">
         <div class="logo-box">
-            <a href="#">
+            <a href="/">
                 <img src="{{ static('common/images/logo.png') }}" alt="">
             </a>
         </div>
@@ -24,7 +28,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" name="telephone" placeholder="手机号码">
                     <span class="input-group-btn">
-                        <button class="btn btn-default">发送验证码</button>
+                        <button id="sms-captcha-btn" class="btn btn-default">发送验证码</button>
                     </span>
                 </div>
             </div>

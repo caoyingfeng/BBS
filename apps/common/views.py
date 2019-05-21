@@ -1,8 +1,22 @@
-from flask import Blueprint
+from flask import Blueprint, request
+from utils import restful
+from utils.captcha import Captcha
+from exts import alidayu
 
-bp = Blueprint('common',__name__,url_prefix='/common')
+bp = Blueprint('common',__name__,url_prefix='/c')
 
 
-@bp.route('/')
-def index():
-    return 'common index'
+@bp.route("/sms_captcha/")
+def sms_captcha():
+    # telephone=xxx
+    telephone = request.args.get('telephone')
+    if not telephone:
+        return restful.param_error(message='请输入手机号码')
+
+    captcha = Captcha.gene_text(number=4)
+    message = alidayu.send_sms(telephone, code=captcha)
+    if message == True:
+        return restful.success()
+    else:
+        # return restful.param_error(message=message)
+        return restful.success()
