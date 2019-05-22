@@ -118,5 +118,5 @@ class AliyunAPI(object):
 
         if response.get("Message") == "OK":
             return True
-        print(response.get("Message"))
+        # print(response.get("Message"))
         return response.get("Message")
