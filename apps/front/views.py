@@ -22,6 +22,7 @@ class SignupView(views.MethodView):
     def post(self):
         form = SignupForm(request.form)
         if form.validate():
+
             telephone = form.telephone.data
             username = form.username.data
             password = form.password1.data
