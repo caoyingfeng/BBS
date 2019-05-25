@@ -1,6 +1,10 @@
 import os
 
-SECRET_KEY = os.urandom(24)
+# SECRET_KEY = os.urandom(24)
+# for test
+SECRET_KEY = "abd"
+
+
 TEMPLATES_AUTO_RELOAD = True
 DEBUG = True
 

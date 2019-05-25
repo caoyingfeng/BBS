@@ -1,0 +1,43 @@
+{% extends "cms/cms_base.html" %}
+
+{% block title %}
+    轮播图管理
+{% endblock %}
+
+{% block page_title %}
+    {{ self.title() }}
+{% endblock %}
+
+{% block head %}
+    <style>
+        .top-box{
+            overflow: hidden;
+            background: #ecedf0;
+            padding: 10px;
+        }
+        .top-box button{
+            float: right;
+        }
+    </style>
+{% endblock %}
+
+{% block main_content %}
+    <div class="top-box">
+        <button class="btn btn-warning">添加轮播图</button>
+    </div>
+    <table class="table table-bordered">
+        <thread>
+            <tr>
+                <th>名称</th>
+                <th>图片链接</th>
+                <th>跳转链接</th>
+                <th>优先级</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+        </thread>
+        <tbody>
+            <tr></tr>
+        </tbody>
+    </table>
+{% endblock %}
