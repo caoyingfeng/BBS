@@ -1,9 +1,9 @@
 {% extends 'cms/cms_base.html' %}
-
+{% from 'common/_macros.html' import static %}
 {% block title %}板块管理{% endblock %}
 
 {% block head %}
-
+    <script src="{{ static("cms/js/boards.js") }}"></script>
 {% endblock %}
 
 {% block page_title %}
@@ -11,5 +11,20 @@
 {% endblock %}
 
 {% block main_content %}
-    我是板块管理页面
+    <div class="top-box">
+        <button class="btn btn-warning" style="float: right" id="add-board-btn">添加新板块</button>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>板块名称</th>
+                <th>帖子数量</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
 {% endblock %}

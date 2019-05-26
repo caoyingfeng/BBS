@@ -1,7 +1,13 @@
 from flask import Blueprint,views, render_template, request,session,redirect\
     ,url_for, g, jsonify
-from .forms import LoginForm,ResetpwdForm, ResetEmailForm,AddBannerForm, UpdateBannerForm
-from ..models import BannerModel
+from .forms import (LoginForm,
+                    ResetpwdForm,
+                    ResetEmailForm,
+                    AddBannerForm,
+                    UpdateBannerForm,
+                    AddBoardForm,
+                    UpdateBoardForm)
+from ..models import BannerModel, BoardModel
 from .models import CMSUser, CMSPermission
 from .decorators import login_required, permission_required
 import config
@@ -75,6 +81,55 @@ def boards():
     return render_template('cms/cms_boards.html')
 
 
+@bp.route('/aboard/',methods=['POST'])
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def aboard():
+    form = AddBoardForm(request.form)
+    if form.validate():
+        name = form.name.data
+        board = BoardModel(name=name)
+        db.session.add(board)
+        db.session.commit()
+        return restful.success()
+    else:
+        return restful.param_error(form.get_error())
+
+
+@bp.route('/uboard/',methods=['POST'])
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def uboard():
+    form = UpdateBoardForm(request.form)
+    if form.validate():
+        board_id = form.id.data
+        name = form.name.data
+        board = BoardModel.query.get(board_id)
+        if board:
+            board.name = name
+            db.session.commit()
+            return restful.success()
+        else:
+            return restful.param_error(message='没有这个板块')
+    else:
+        return restful.param_error(message=form.get_error())
+
+
+@bp.route('/dboard/',methods=['POST'])
+@login_required
+@permission_required(CMSPermission.BOARDER)
+def dboard():
+    board_id = request.form.get('board_id')
+    if not board_id:
+        return restful.param_error(message="没有这个板块id")
+    board = BoardModel.query.get(board_id)
+    if not board:
+        return restful.param_error(message="没有这个板块")
+    db.session.delete(board)
+    db.session.commit()
+    return restful.success()
+
+
 @bp.route('/fusers/')
 @login_required
 @permission_required(CMSPermission.FRONTUSER)
@@ -99,7 +154,7 @@ def croles():
 @bp.route('/banners/')
 @login_required
 def banners():
-    banners = BannerModel.query.all()
+    banners = BannerModel.query.order_by(BannerModel.priority.desc()).all()
     return render_template('cms/cms_banners.html',banners=banners)
 
 

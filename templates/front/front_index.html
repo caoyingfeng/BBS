@@ -19,42 +19,20 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <a href="#">
-                    <img src="https://static-image.xfz.cn/1558676231_156.png" alt="">
-                </a>
-              <div class="carousel-caption">
-                ...
-              </div>
-            </div>
-            <div class="item">
-               <a href="#">
-                    <img src="https://static-image.xfz.cn/1558679235_4.jpg" alt="">
-                </a>
-              <div class="carousel-caption">
-                ...
-              </div>
-            </div>
-            <div class="item">
-               <a href="#">
-                    <img src="https://static-image.xfz.cn/1558679235_4.jpg" alt="">
-                </a>
-              <div class="carousel-caption">
-                ...
-              </div>
-            </div>
-            <div class="item">
-               <a href="#">
-                    <img src="https://static-image.xfz.cn/1558679235_4.jpg" alt="">
-                </a>
-              <div class="carousel-caption">
-                ...
-              </div>
-            </div>
-            ...
+                {% for banner in banners %}
+                    {% if loop.first %}
+                        <div class="item active">
+                    {% else %}
+                        <div class="item">
+                    {% endif %}
+                    <a href="{{ banner.link_url }}">
+                        <img src="{{ banner.image_url }}" alt="">
+                    </a>
+                    </div>
+                {% endfor %}
           </div>
 
-          <!-- Controls -->
+          <!-- Controls 左右切换-->
           <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
