@@ -183,8 +183,6 @@ body {
     margin-top: 20px;
 }
 
-
-
 .top-group{
     padding: 5px 10px;
     border-radius: 2px;
@@ -196,3 +194,9 @@ body {
 .form-container{
     width:300px;
 }
+
+.top-box{
+            overflow: hidden;
+            background: #ecedf0;
+            padding: 10px;
+        }
