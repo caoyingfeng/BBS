@@ -11,7 +11,7 @@ from utils import restful, safeutils
 from .models import FrontUser
 from exts import db
 import config
-from ..models import BannerModel
+from ..models import BannerModel,BoardModel
 
 bp = Blueprint('front',__name__)
 
@@ -19,9 +19,11 @@ bp = Blueprint('front',__name__)
 @bp.route('/')
 def index():
     banners = BannerModel.query.order_by(BannerModel.priority.desc()).limit(4)
+    boards = BoardModel.query.all()
     # 将键值对解析成关键字参数
     context = {
-        "banners":banners
+        "banners":banners,
+        "boards":boards
     }
     return render_template('front/front_index.html',**context)
 
