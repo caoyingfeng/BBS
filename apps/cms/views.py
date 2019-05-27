@@ -78,7 +78,11 @@ def comments():
 @login_required
 @permission_required(CMSPermission.BOARDER)
 def boards():
-    return render_template('cms/cms_boards.html')
+    board_models = BoardModel.query.all()
+    context ={
+        'boards':board_models
+    }
+    return render_template('cms/cms_boards.html',**context)
 
 
 @bp.route('/aboard/',methods=['POST'])
@@ -102,7 +106,7 @@ def aboard():
 def uboard():
     form = UpdateBoardForm(request.form)
     if form.validate():
-        board_id = form.id.data
+        board_id = form.board_id.data
         name = form.name.data
         board = BoardModel.query.get(board_id)
         if board:

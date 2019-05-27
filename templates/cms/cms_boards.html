@@ -24,7 +24,17 @@
             </tr>
         </thead>
         <tbody>
-
+            {% for board in boards %}
+                <tr data-name="{{ board.name }}" data-id="{{ board.id }}">
+                    <td>{{ board.name }}</td>
+                    <td>0</td>
+                    <td>{{ board.create_time }}</td>
+                    <td>
+                        <button class="btn btn-default btn-ms edit-board-btn">编辑</button>
+                        <button class="btn btn-danger btn-ms delete-board-btn">删除</button>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}

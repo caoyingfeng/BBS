@@ -53,5 +53,5 @@ class AddBoardForm(BaseForm):
 
 
 class UpdateBoardForm(AddBoardForm):
-    id = IntegerField(validators=[InputRequired(message='请输入板块id!')])
+    board_id = IntegerField(validators=[InputRequired(message='请输入板块id!')])
 

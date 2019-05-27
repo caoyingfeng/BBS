@@ -1,7 +1,7 @@
 
 'use strict';
 
-var zlqiniu = {
+var myqiniu = {
 	'setUp': function(args) {
 		var domain = args['domain'];
 		var params = {
