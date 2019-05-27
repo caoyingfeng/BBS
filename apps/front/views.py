@@ -6,12 +6,14 @@ from flask import (
     session,
     url_for
 )
-from .forms import SignupForm,SigninForm
+from .forms import SignupForm,SigninForm,AddPostForm
 from utils import restful, safeutils
 from .models import FrontUser
 from exts import db
 import config
-from ..models import BannerModel,BoardModel
+from ..models import BannerModel,BoardModel, PostModel
+from .decorators import login_required
+
 
 bp = Blueprint('front',__name__)
 
@@ -28,9 +30,29 @@ def index():
     return render_template('front/front_index.html',**context)
 
 
-# @bp.route('/test/')
-# def test():
-#     return render_template('front/front_test.html')
+@bp.route('/apost/',methods=['POST','GET'])
+@login_required
+def apost():
+    if request.method == 'GET':
+        boards = BoardModel.query.all()
+        return render_template('front/front_apost.html',boards=boards)
+    else:
+        form = AddPostForm(request.form)
+        if form.validate():
+            title = form.title.data
+            content = form.content.data
+            board_id = form.board_id.data
+            board = BoardModel.query.get(board_id)
+            if not board:
+                return restful.param_error(message="没有这个板块")
+            else:
+                post = PostModel(title=title,content=content)
+                post.board = board
+                db.session.add(post)
+                db.session.commit()
+                return restful.success()
+        else:
+            return restful.param_error(message=form.get_error())
 
 
 class SignupView(views.MethodView):
