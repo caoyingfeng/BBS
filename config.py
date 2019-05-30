@@ -47,3 +47,13 @@ Access_Key_Secret ='Dh7LLtF9s8WAzXnQeGHiVNf1AolpnD'
 
 ALIDAYU_SIGN_NAME = 'python论坛注册'
 ALIDAYU_TEMPLATE_CODE = 'SMS_165414707'
+
+# UEditor的相关配置
+
+UEDITOR_UPLOAD_PATH = os.path.join(os.path.dirname(__file__),'images')
+
+UEDITOR_UPLOAD_TO_QINIU = False
+UEDITOR_QINIU_ACCESS_KEY = "9FveJ45zc6Iwe1Oq_-uQnHTiUVHpCvQnFLVAw-9Q"
+UEDITOR_QINIU_SECRET_KEY = "AaWhtWonHQ66ZLsGNPZM5FI2zm_JdCVSCN_mjdYp"
+UEDITOR_QINIU_BUCKET_NAME = "cypython"
+UEDITOR_QINIU_DOMAIN = "http://7xqenu.com1.z0.glb.clouddn.com/"

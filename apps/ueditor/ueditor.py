@@ -21,7 +21,7 @@ from urllib import parse
 # 更改工作目录。这么做的目的是七牛qiniu的sdk
 # 在设置缓存路径的时候默认会设置到C:/Windows/System32下面
 # 会造成没有权限创建。
-os.chdir(os.path.abspath(sys.path[0]))
+os.chdir(os.path.dirname(__file__))
 try:
     import qiniu
 except:
@@ -95,11 +95,11 @@ def upload():
         if UEDITOR_UPLOAD_TO_QINIU:
             if not sys.modules.get('qiniu'):
                 raise RuntimeError('没有导入qiniu模块！')
+            q = qiniu.Auth(UEDITOR_QINIU_ACCESS_KEY,UEDITOR_QINIU_SECRET_KEY)
+            token = q.upload_token(UEDITOR_QINIU_BUCKET_NAME)
             buffer = BytesIO()
             image.save(buffer)
             buffer.seek(0)
-            q = qiniu.Auth(UEDITOR_QINIU_ACCESS_KEY, UEDITOR_QINIU_SECRET_KEY)
-            token = q.upload_token(UEDITOR_QINIU_BUCKET_NAME)
             ret,info = qiniu.put_data(token,save_filename,buffer.read())
             if info.ok:
                 result['state'] = "SUCCESS"
