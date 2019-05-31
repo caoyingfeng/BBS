@@ -46,5 +46,5 @@ class SigninForm(BaseForm):
 class AddPostForm(BaseForm):
     title = StringField(validators=[InputRequired(message='请输入标题!')])
     content = StringField(validators=[InputRequired(message='请输入内容!')])
-    board_id = StringField(validators=[InputRequired(message='请输入板块!')])
+    board_id = StringField(validators=[InputRequired(message='请输入板块id!')])
 

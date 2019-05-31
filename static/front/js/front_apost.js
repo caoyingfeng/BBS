@@ -7,11 +7,13 @@ $(function () {
    $("#submit-btn").click(function (event) {
        event.preventDefault();
        var titleInput = $('input[name="title"]');
-       var boardSelect = $('input[name="board_id"]');
+       var boardSelect = $('select[name="board_id"]');
 
        var title = titleInput.val();
        var board_id = boardSelect.val();
        var content = ue.getContent();
+       // console.log(title);
+       // console.log(board_id);
 
        myajax.post({
            'url':'/apost/',

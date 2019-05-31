@@ -22,10 +22,10 @@
         </div>
         <div class="form-group">
             <div class="input-group">
-                <span class="input-group-addon">模块</span>
+                <span class="input-group-addon">版块</span>
                 <select name="board_id" class="form-control">
                     {% for board in boards %}
-                        <option value={{ board.id }}>{{ board.name }}</option>
+                        <option value="{{ board.id }}">{{ board.name }}</option>
                     {% endfor %}
                 </select>
             </div>

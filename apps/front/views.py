@@ -4,7 +4,8 @@ from flask import (
     render_template,
     request,
     session,
-    url_for
+    url_for,
+    g
 )
 from .forms import SignupForm,SigninForm,AddPostForm
 from utils import restful, safeutils
@@ -13,6 +14,7 @@ from exts import db
 import config
 from ..models import BannerModel,BoardModel, PostModel
 from .decorators import login_required
+from flask_paginate import Pagination, get_page_parameter
 
 
 bp = Blueprint('front',__name__)
@@ -22,10 +24,17 @@ bp = Blueprint('front',__name__)
 def index():
     banners = BannerModel.query.order_by(BannerModel.priority.desc()).limit(4)
     boards = BoardModel.query.all()
+    page = request.args.get(get_page_parameter(),type=int,default=1)
+    start = (page-1)*config.PER_PAGE
+    end = start + config.PER_PAGE
+    posts = PostModel.query.slice(start,end)
+    pagination = Pagination(page=page,total=PostModel.query.count())
     # 将键值对解析成关键字参数
     context = {
         "banners":banners,
-        "boards":boards
+        "boards":boards,
+        "posts":posts,
+        "pagination":pagination
     }
     return render_template('front/front_index.html',**context)
 
@@ -48,6 +57,7 @@ def apost():
             else:
                 post = PostModel(title=title,content=content)
                 post.board = board
+                post.author = g.front_user
                 db.session.add(post)
                 db.session.commit()
                 return restful.success()
