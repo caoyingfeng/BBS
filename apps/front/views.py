@@ -28,7 +28,7 @@ def index():
     start = (page-1)*config.PER_PAGE
     end = start + config.PER_PAGE
     posts = PostModel.query.slice(start,end)
-    pagination = Pagination(page=page,total=PostModel.query.count())
+    pagination = Pagination(bs_version=3,page=page,total=PostModel.query.count(),outer_window=1,inner_window=2)
     # 将键值对解析成关键字参数
     context = {
         "banners":banners,
