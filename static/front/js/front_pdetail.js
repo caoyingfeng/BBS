@@ -25,6 +25,7 @@ $(function () {
     $("#comment-btn").click(function (event) {
         event.preventDefault();
         var loginTag = $("#login-tag").attr("data-is-login");
+        console.log(loginTag);
         if(!loginTag){
             window.location = '/signin/';
         }else{

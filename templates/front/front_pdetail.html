@@ -29,10 +29,22 @@
             </article>
         </div>
         <div class="comment-group">
-            <h3>评论列表</h3>
             <ul class="comment-list-group">
                 {% for comment in post.comments %}
-                    <li>{{ comment.content }}</li>
+                    <li>
+                        <div class="avatar-group">
+                            <img src="{{ comment.author.avatar or static('common/images/logo.png') }}" alt="">
+                        </div>
+                        <div class="comment-content">
+                            <p class="author-info">
+                                <span>{{ comment.author.username }}</span>
+                                <span>{{ comment.create_time }}</span>
+                            </p>
+                            <p class="comment-txt">
+                                {{ comment.content|safe }}
+                            </p>
+                        </div>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
