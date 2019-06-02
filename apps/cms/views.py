@@ -1,5 +1,5 @@
-from flask import Blueprint,views, render_template, request,session,redirect\
-    ,url_for, g, jsonify
+from flask import Blueprint, views, render_template, request, session, redirect \
+    , url_for, g, jsonify
 from .forms import (LoginForm,
                     ResetpwdForm,
                     ResetEmailForm,
@@ -7,7 +7,7 @@ from .forms import (LoginForm,
                     UpdateBannerForm,
                     AddBoardForm,
                     UpdateBoardForm)
-from ..models import BannerModel, BoardModel
+from ..models import BannerModel, BoardModel, HighlightPostModel, PostModel
 from .models import CMSUser, CMSPermission
 from .decorators import login_required, permission_required
 import config
@@ -16,7 +16,7 @@ from flask_mail import Message
 from utils import restful, mycache
 import string, random
 
-bp = Blueprint('cms',__name__,url_prefix='/cms')
+bp = Blueprint('cms', __name__, url_prefix='/cms')
 
 
 @bp.route('/')
@@ -47,16 +47,16 @@ def email_captcha():
 
     # source.extend(["0","1","2","3","4","5","6","7","8","9"])
     source = list(string.ascii_letters)
-    source.extend(map(lambda x:str(x),range(0,10)))
-    captcha = "".join(random.sample(source,6))
+    source.extend(map(lambda x: str(x), range(0, 10)))
+    captcha = "".join(random.sample(source, 6))
 
     # 给这个邮箱发送邮件
-    message = Message('Python论坛邮箱验证码',recipients=[email],body='您的验证码是：%s'%captcha)
+    message = Message('Python论坛邮箱验证码', recipients=[email], body='您的验证码是：%s' % captcha)
     try:
         mail.send(message)
     except:
         return restful.server_error()
-    mycache.set(email,captcha)
+    mycache.set(email, captcha)
     return restful.success()
 
 
@@ -64,7 +64,45 @@ def email_captcha():
 @login_required
 @permission_required(CMSPermission.POSTER)
 def posts():
-    return render_template('cms/cms_posts.html')
+    context = {
+        'posts':PostModel.query.all()
+    }
+    return render_template('cms/cms_posts.html',**context)
+
+
+@bp.route('/hpost/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.POSTER)
+def hpost():
+    post_id = request.form.get("post_id")
+    if not post_id:
+        return restful.params_error('请传入帖子id！')
+    post = PostModel.query.get(post_id)
+    if not post:
+        return restful.params_error("没有这篇帖子！")
+
+    highlight = HighlightPostModel()
+    highlight.post = post
+    db.session.add(highlight)
+    db.session.commit()
+    return restful.success()
+
+
+@bp.route('/uhpost/', methods=['POST'])
+@login_required
+@permission_required(CMSPermission.POSTER)
+def uhpost():
+    post_id = request.form.get("post_id")
+    if not post_id:
+        return restful.params_error('请传入帖子id！')
+    post = PostModel.query.get(post_id)
+    if not post:
+        return restful.params_error("没有这篇帖子！")
+
+    highlight = HighlightPostModel.query.filter_by(post_id=post_id).first()
+    db.session.delete(highlight)
+    db.session.commit()
+    return restful.success()
 
 
 @bp.route('/comments/')
@@ -79,13 +117,13 @@ def comments():
 @permission_required(CMSPermission.BOARDER)
 def boards():
     board_models = BoardModel.query.all()
-    context ={
-        'boards':board_models
+    context = {
+        'boards': board_models
     }
-    return render_template('cms/cms_boards.html',**context)
+    return render_template('cms/cms_boards.html', **context)
 
 
-@bp.route('/aboard/',methods=['POST'])
+@bp.route('/aboard/', methods=['POST'])
 @login_required
 @permission_required(CMSPermission.BOARDER)
 def aboard():
@@ -100,7 +138,7 @@ def aboard():
         return restful.params_error(form.get_error())
 
 
-@bp.route('/uboard/',methods=['POST'])
+@bp.route('/uboard/', methods=['POST'])
 @login_required
 @permission_required(CMSPermission.BOARDER)
 def uboard():
@@ -119,7 +157,7 @@ def uboard():
         return restful.params_error(message=form.get_error())
 
 
-@bp.route('/dboard/',methods=['POST'])
+@bp.route('/dboard/', methods=['POST'])
 @login_required
 @permission_required(CMSPermission.BOARDER)
 def dboard():
@@ -159,10 +197,10 @@ def croles():
 @login_required
 def banners():
     banners = BannerModel.query.order_by(BannerModel.priority.desc()).all()
-    return render_template('cms/cms_banners.html',banners=banners)
+    return render_template('cms/cms_banners.html', banners=banners)
 
 
-@bp.route('/abanner/',methods=['POST'])
+@bp.route('/abanner/', methods=['POST'])
 @login_required
 def abanner():
     form = AddBannerForm(request.form)
@@ -171,7 +209,7 @@ def abanner():
         image_url = form.image_url.data
         link_url = form.link_url.data
         priority = form.priority.data
-        banner = BannerModel(name=name,image_url=image_url,link_url=link_url,priority=priority)
+        banner = BannerModel(name=name, image_url=image_url, link_url=link_url, priority=priority)
         db.session.add(banner)
         db.session.commit()
         return restful.success()
@@ -179,7 +217,7 @@ def abanner():
         return restful.params_error(message=form.get_error())
 
 
-@bp.route('/ubanner/',methods=['POST'])
+@bp.route('/ubanner/', methods=['POST'])
 @login_required
 def ubanner():
     form = UpdateBannerForm(request.form)
@@ -201,7 +239,7 @@ def ubanner():
         return restful.params_error(message=form.get_error())
 
 
-@bp.route("/dbanner/",methods=["POST"])
+@bp.route("/dbanner/", methods=["POST"])
 @login_required
 def dbanner():
     banner_id = request.form.get('banner-id')
@@ -217,8 +255,8 @@ def dbanner():
 
 class LoginView(views.MethodView):
 
-    def get(self,message=None):
-        return render_template('cms/cms_login.html',message=message)
+    def get(self, message=None):
+        return render_template('cms/cms_login.html', message=message)
 
     def post(self):
         form = LoginForm(request.form)
@@ -243,6 +281,7 @@ class LoginView(views.MethodView):
 
 class ResetPwdView(views.MethodView):
     decorators = [login_required]
+
     def get(self):
         return render_template('cms/cms_resetpwd.html')
 
@@ -255,7 +294,7 @@ class ResetPwdView(views.MethodView):
             if user.check_password(oldpwd):
                 user.password = newpwd
                 db.session.commit()
-                #{"code": 200,"message":""}
+                # {"code": 200,"message":""}
                 return restful.success()
             else:
                 return restful.params_error("旧密码错误")
@@ -266,8 +305,10 @@ class ResetPwdView(views.MethodView):
 
 class ResetEmailView(views.MethodView):
     decorators = [login_required]
+
     def get(self):
         return render_template('cms/cms_resetemail.html')
+
     def post(self):
         form = ResetEmailForm(request.form)
         if form.validate():
@@ -279,6 +320,6 @@ class ResetEmailView(views.MethodView):
             return restful.params_error(form.get_error())
 
 
-bp.add_url_rule('/login/',view_func=LoginView.as_view('login'))
-bp.add_url_rule('/resetpwd/',view_func=ResetPwdView.as_view('resetpwd'))
-bp.add_url_rule('/resetemail/',view_func=ResetEmailView.as_view('resetemail'))
+bp.add_url_rule('/login/', view_func=LoginView.as_view('login'))
+bp.add_url_rule('/resetpwd/', view_func=ResetPwdView.as_view('resetpwd'))
+bp.add_url_rule('/resetemail/', view_func=ResetEmailView.as_view('resetemail'))
