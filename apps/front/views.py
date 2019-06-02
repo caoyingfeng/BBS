@@ -5,7 +5,8 @@ from flask import (
     request,
     session,
     url_for,
-    g
+    g,
+    abort
 )
 from .forms import SignupForm,SigninForm,AddPostForm
 from utils import restful, safeutils
@@ -75,6 +76,15 @@ def apost():
                 return restful.success()
         else:
             return restful.param_error(message=form.get_error())
+
+
+@bp.route("/p/<post_id>")
+def post_detail(post_id):
+    post = PostModel.query.get(post_id)
+    if not post:
+        abort(404)
+    else:
+        return render_template('front/front_pdetail.html',post=post)
 
 
 class SignupView(views.MethodView):

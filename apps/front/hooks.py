@@ -1,5 +1,5 @@
 import config
-from flask import session,g
+from flask import session,g,render_template
 from .models import FrontUser
 from .views import bp
 
@@ -13,3 +13,6 @@ def before_request():
             g.front_user = user
 
 
+@bp.errorhandler
+def page_not_found():
+    return render_template('front/front_404.html')
