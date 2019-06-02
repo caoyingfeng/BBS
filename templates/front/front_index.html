@@ -77,11 +77,20 @@
             <a href="{{ url_for("front.apost") }}" class="btn btn-warning btn-block">发布帖子</a>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item active">所有板块</a>
-            {% for board in boards %}
-                <a href="#" class="list-group-item">{{ board.name }}</a>
-            {% endfor %}
+            {% if current_board %}
+                <a href="/" class="list-group-item ">所有板块</a>
+            {% else %}
+                <a href="/" class="list-group-item active">所有板块</a>
+            {% endif %}
 
+            {% for board in boards %}
+                {% if board.id == current_board %}
+                    <a href="{{ url_for("front.index",bd=board.id) }}" class="list-group-item active">{{ board.name }}</a>
+                {% else %}
+                    <a href="{{ url_for("front.index",bd=board.id) }}" class="list-group-item">{{ board.name }}</a>
+                {% endif %}
+
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

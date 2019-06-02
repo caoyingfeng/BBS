@@ -22,19 +22,31 @@ bp = Blueprint('front',__name__)
 
 @bp.route('/')
 def index():
+    # 注意接受的格式和default
+    board_id = request.args.get("bd",type=int,default=None)
+    # print(board_id)
+    page = request.args.get(get_page_parameter(),type=int,default=1)
     banners = BannerModel.query.order_by(BannerModel.priority.desc()).limit(4)
     boards = BoardModel.query.all()
-    page = request.args.get(get_page_parameter(),type=int,default=1)
-    start = (page-1)*config.PER_PAGE
+    start = (page - 1) * config.PER_PAGE
     end = start + config.PER_PAGE
-    posts = PostModel.query.slice(start,end)
-    pagination = Pagination(bs_version=3,page=page,total=PostModel.query.count(),outer_window=1,inner_window=2)
+    posts = None
+    total = 0
+    if board_id:
+        query_obj = PostModel.query.filter_by(board_id=board_id)
+        posts = query_obj.slice(start, end)
+        total = query_obj.count()
+    else:
+        posts = PostModel.query.slice(start, end)
+        total = PostModel.query.count()
+    pagination = Pagination(bs_version=3,page=page,total=total,outer_window=1,inner_window=2)
     # 将键值对解析成关键字参数
     context = {
         "banners":banners,
         "boards":boards,
         "posts":posts,
-        "pagination":pagination
+        "pagination":pagination,
+        "current_board":board_id
     }
     return render_template('front/front_index.html',**context)
 
