@@ -24,7 +24,7 @@
                 <span>阅读数：{{ post.read_count }}</span>
                 <span>评论数：0</span>
             </p>
-            <article class="post-content">
+            <article class="post-content" id="post-content" data-id="{{ post.id }}">
                 {{ post.content|safe }}
             </article>
         </div>
@@ -40,7 +40,7 @@
             <h3>发表评论</h3>
             <script id="editor" type="text/plain" style="height: 100px;"></script>
             <div class="comment-btn-group">
-                <button class="btn btn-primary">发表评论</button>
+                <button class="btn btn-primary" id="comment-btn">发表评论</button>
             </div>
         </div>
     </div>

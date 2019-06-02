@@ -3,32 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9198b51a-5f61-4862-818d-d7286f5077a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/cms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/front/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/front/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/front/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ueditor/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ueditor/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ueditor/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ueditor/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ueditor/migrations/versions/bbe3c15f27e8_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/4d8c5c45555c_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/5cc24024ceaf_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/6dd5306146fe_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/6e8d697e4b61_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/7334c9990e71_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/9a90544a09f5_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/bcca95b5ecbf_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/ee5a6d2c773d_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/f2fc67619e35_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/front_pdetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/css/front_pdetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/front_pdetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/front/js/front_pdetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/front_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/front_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/front_pdetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/front_pdetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/restful.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/restful.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +18,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
+            <state relative-caret-position="88">
               <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
             </state>
           </provider>
@@ -50,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
+            <state relative-caret-position="770">
               <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -62,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/front/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-580">
-              <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+            <state relative-caret-position="1034">
+              <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
               <folding>
                 <element signature="e#0#124#0" expanded="true" />
               </folding>
@@ -71,11 +48,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/front/front_pdetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="40" column="70" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
+            <state relative-caret-position="602">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/front/front_base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -83,17 +69,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/front/css/front_pdetail.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
+            <state relative-caret-position="902">
               <caret line="41" column="18" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/front/js/front_pdetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="512">
+              <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -101,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/restful.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
+            <state relative-caret-position="484">
               <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
             </state>
           </provider>
@@ -110,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/front/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="1100">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -122,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="95" column="40" lean-forward="true" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+            <state relative-caret-position="1958">
+              <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -190,7 +176,6 @@
         <option value="$PROJECT_DIR$/apps/ueditor/__init__.py" />
         <option value="$PROJECT_DIR$/bbs.py" />
         <option value="$PROJECT_DIR$/apps/front/__init__.py" />
-        <option value="$PROJECT_DIR$/templates/front/front_base.html" />
         <option value="$PROJECT_DIR$/apps/ueditor/config.py" />
         <option value="$PROJECT_DIR$/apps/ueditor/ueditor.py" />
         <option value="$PROJECT_DIR$/templates/front/front_apost.html" />
@@ -208,8 +193,9 @@
         <option value="$PROJECT_DIR$/apps/front/views.py" />
         <option value="$PROJECT_DIR$/apps/cms/views.py" />
         <option value="$PROJECT_DIR$/static/front/css/front_pdetail.css" />
-        <option value="$PROJECT_DIR$/static/front/js/front_pdetail.js" />
+        <option value="$PROJECT_DIR$/templates/front/front_base.html" />
         <option value="$PROJECT_DIR$/templates/front/front_pdetail.html" />
+        <option value="$PROJECT_DIR$/static/front/js/front_pdetail.js" />
       </list>
     </option>
   </component>
@@ -494,23 +480,24 @@
       <workItem from="1559307939691" duration="5078000" />
       <workItem from="1559402038198" duration="1257000" />
       <workItem from="1559434759873" duration="9643000" />
-      <workItem from="1559461605236" duration="11010000" />
+      <workItem from="1559461605236" duration="12498000" />
+      <workItem from="1559479964194" duration="122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198891000" />
+    <option name="totallyTimeSpent" value="200501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="460" y="42" width="1320" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17189953" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17425431" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32902297" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19971265" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19971265" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37106016" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -628,13 +615,6 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/front_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -793,108 +773,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/7334c9990e71_.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/f2fc67619e35_.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/ee5a6d2c773d_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/9a90544a09f5_.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/6e8d697e4b61_.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/6dd5306146fe_.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/bcca95b5ecbf_.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/5cc24024ceaf_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/migrations/versions/4d8c5c45555c_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ueditor/migrations/versions/53e9c58b6161_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ueditor/migrations/versions/bbe3c15f27e8_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/ueditor/migrations/versions/f36e9310a670_.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1614" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="95" column="40" lean-forward="true" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/front/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/restful.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/migrations/versions/7334c9990e71_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/f2fc67619e35_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/ee5a6d2c773d_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/9a90544a09f5_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/6e8d697e4b61_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/6dd5306146fe_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/bcca95b5ecbf_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/5cc24024ceaf_.py" />
+    <entry file="file://$PROJECT_DIR$/migrations/versions/4d8c5c45555c_.py" />
+    <entry file="file://$PROJECT_DIR$/apps/ueditor/migrations/versions/53e9c58b6161_.py" />
+    <entry file="file://$PROJECT_DIR$/apps/ueditor/migrations/versions/bbe3c15f27e8_.py" />
+    <entry file="file://$PROJECT_DIR$/apps/ueditor/migrations/versions/f36e9310a670_.py" />
     <entry file="file://$PROJECT_DIR$/apps/cms/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-416">
@@ -905,34 +795,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/front/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-580">
-          <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        <state relative-caret-position="1034">
+          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
           <folding>
             <element signature="e#0#124#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/front_pdetail.js">
+    <entry file="file://$PROJECT_DIR$/templates/front/front_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="836">
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/front/css/front_pdetail.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
+        <state relative-caret-position="902">
           <caret line="41" column="18" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/restful.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/front/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1958">
+          <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/front/front_pdetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="40" column="70" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="70" />
+        <state relative-caret-position="602">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/front/js/front_pdetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
         </state>
       </provider>
     </entry>
