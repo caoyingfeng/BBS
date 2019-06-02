@@ -1,5 +1,5 @@
 from ..forms import BaseForm
-from wtforms import StringField
+from wtforms import StringField,IntegerField
 from wtforms.validators import Regexp,equal_to,ValidationError,InputRequired
 from utils import mycache
 from exts import db
@@ -47,4 +47,9 @@ class AddPostForm(BaseForm):
     title = StringField(validators=[InputRequired(message='请输入标题!')])
     content = StringField(validators=[InputRequired(message='请输入内容!')])
     board_id = StringField(validators=[InputRequired(message='请输入板块id!')])
+
+
+class AddCommentForm(BaseForm):
+    content = StringField(validators=[InputRequired(message='请输入评论内容！')])
+    post_id = IntegerField(validators=[InputRequired(message='请输入帖子id！')])
 

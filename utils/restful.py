@@ -20,7 +20,7 @@ def unauth_error(message=""):
     return restful_result(code=HttpCode.unautherror,message=message,data=None)
 
 
-def param_error(message=""):
+def params_error(message=""):
     return restful_result(code=HttpCode.paramserror,message=message,data=None)
 
 

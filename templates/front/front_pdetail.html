@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block head %}
+    <script src="{{ static('ueditor/ueditor.config.js') }}"></script>
+    <script src="{{ static('ueditor/ueditor.all.min.js') }}"></script>
+    <script src="{{ static('front/js/front_pdetail.js') }}"></script>
     <link rel="stylesheet" href="{{ static('front/css/front_pdetail.css') }}">
 {% endblock %}
 
@@ -24,6 +27,21 @@
             <article class="post-content">
                 {{ post.content|safe }}
             </article>
+        </div>
+        <div class="comment-group">
+            <h3>评论列表</h3>
+            <ul class="comment-list-group">
+                {% for comment in post.comments %}
+                    <li>{{ comment.content }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="add-comment-group">
+            <h3>发表评论</h3>
+            <script id="editor" type="text/plain" style="height: 100px;"></script>
+            <div class="comment-btn-group">
+                <button class="btn btn-primary">发表评论</button>
+            </div>
         </div>
     </div>
 

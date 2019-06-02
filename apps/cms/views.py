@@ -43,7 +43,7 @@ def email_captcha():
     # /email_capthca/?email=xxx@qq.com
     email = request.args.get('email')
     if not email:
-        return restful.param_error('请传递邮箱参数！')
+        return restful.params_error('请传递邮箱参数！')
 
     # source.extend(["0","1","2","3","4","5","6","7","8","9"])
     source = list(string.ascii_letters)
@@ -97,7 +97,7 @@ def aboard():
         db.session.commit()
         return restful.success()
     else:
-        return restful.param_error(form.get_error())
+        return restful.params_error(form.get_error())
 
 
 @bp.route('/uboard/',methods=['POST'])
@@ -114,9 +114,9 @@ def uboard():
             db.session.commit()
             return restful.success()
         else:
-            return restful.param_error(message='没有这个板块')
+            return restful.params_error(message='没有这个板块')
     else:
-        return restful.param_error(message=form.get_error())
+        return restful.params_error(message=form.get_error())
 
 
 @bp.route('/dboard/',methods=['POST'])
@@ -125,10 +125,10 @@ def uboard():
 def dboard():
     board_id = request.form.get('board_id')
     if not board_id:
-        return restful.param_error(message="没有这个板块id")
+        return restful.params_error(message="没有这个板块id")
     board = BoardModel.query.get(board_id)
     if not board:
-        return restful.param_error(message="没有这个板块")
+        return restful.params_error(message="没有这个板块")
     db.session.delete(board)
     db.session.commit()
     return restful.success()
@@ -176,7 +176,7 @@ def abanner():
         db.session.commit()
         return restful.success()
     else:
-        return restful.param_error(message=form.get_error())
+        return restful.params_error(message=form.get_error())
 
 
 @bp.route('/ubanner/',methods=['POST'])
@@ -198,7 +198,7 @@ def ubanner():
             db.session.commit()
             return restful.success()
     else:
-        return restful.param_error(message=form.get_error())
+        return restful.params_error(message=form.get_error())
 
 
 @bp.route("/dbanner/",methods=["POST"])
@@ -206,10 +206,10 @@ def ubanner():
 def dbanner():
     banner_id = request.form.get('banner-id')
     if not banner_id:
-        return restful.param_error(message="请输入轮播图id")
+        return restful.params_error(message="请输入轮播图id")
     banner = BannerModel.query.get(banner_id)
     if not banner:
-        return restful.param_error(message="没有这个轮播图")
+        return restful.params_error(message="没有这个轮播图")
     db.session.delete(banner)
     db.session.commit()
     return restful.success()
@@ -258,10 +258,10 @@ class ResetPwdView(views.MethodView):
                 #{"code": 200,"message":""}
                 return restful.success()
             else:
-                return restful.param_error("旧密码错误")
+                return restful.params_error("旧密码错误")
         else:
             # message = form.get_error()
-            return restful.param_error(form.get_error())
+            return restful.params_error(form.get_error())
 
 
 class ResetEmailView(views.MethodView):
@@ -276,7 +276,7 @@ class ResetEmailView(views.MethodView):
             db.session.commit()
             return restful.success()
         else:
-            return restful.param_error(form.get_error())
+            return restful.params_error(form.get_error())
 
 
 bp.add_url_rule('/login/',view_func=LoginView.as_view('login'))
