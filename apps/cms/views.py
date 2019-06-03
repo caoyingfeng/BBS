@@ -12,9 +12,10 @@ from .models import CMSUser, CMSPermission
 from .decorators import login_required, permission_required
 import config
 from exts import db, mail
-from flask_mail import Message
+# from flask_mail import Message
 from utils import restful, mycache
 import string, random
+from tasks import send_mail
 
 bp = Blueprint('cms', __name__, url_prefix='/cms')
 
@@ -50,12 +51,13 @@ def email_captcha():
     source.extend(map(lambda x: str(x), range(0, 10)))
     captcha = "".join(random.sample(source, 6))
 
-    # 给这个邮箱发送邮件
-    message = Message('Python论坛邮箱验证码', recipients=[email], body='您的验证码是：%s' % captcha)
-    try:
-        mail.send(message)
-    except:
-        return restful.server_error()
+    # # 给这个邮箱发送邮件
+    # message = Message('Python论坛邮箱验证码', recipients=[email], body='您的验证码是：%s' % captcha)
+    # try:
+    #     mail.send(message)
+    # except:
+    #     return restful.server_error()
+    send_mail('Python论坛邮箱验证码', recipients=[email], body='您的验证码是：%s' % captcha)
     mycache.set(email, captcha)
     return restful.success()
 
@@ -65,9 +67,9 @@ def email_captcha():
 @permission_required(CMSPermission.POSTER)
 def posts():
     context = {
-        'posts':PostModel.query.order_by(PostModel.create_time.desc())
+        'posts': PostModel.query.order_by(PostModel.create_time.desc())
     }
-    return render_template('cms/cms_posts.html',**context)
+    return render_template('cms/cms_posts.html', **context)
 
 
 @bp.route('/hpost/', methods=['POST'])

@@ -6,6 +6,7 @@ from .forms import SMSCaptchaForm
 from io import BytesIO
 from utils import mycache
 import qiniu
+from tasks import send_sms_captcha
 
 
 bp = Blueprint('common',__name__,url_prefix='/c')
@@ -32,17 +33,19 @@ def sms_captcha():
     if form.validate():
         telephone = form.telephone.data
         captcha = Captcha.gene_text(number=4)
-        message = alidayu.send_sms(telephone, code=captcha)
-        if message:
-            mycache.set(telephone,captcha)
-            # 测试用
-            print(captcha)
-            return restful.success()
-        else:
-            # return restful.param_error(message=message)
-            # 测试用
-            mycache.set(telephone, captcha)
-            return restful.success()
+        # message = alidayu.send_sms(telephone, code=captcha)
+        send_sms_captcha(telephone, code=captcha)
+        # if message:
+        #     mycache.set(telephone,captcha)
+        #     # 测试用
+        #     print(captcha)
+        #     return restful.success()
+        # else:
+        #     # return restful.param_error(message=message)
+        #     # 测试用
+        #     mycache.set(telephone, captcha)
+        #     return restful.success()
+        return restful.success()
     else:
         return restful.param_error(message='参数错误')
 
