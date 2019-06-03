@@ -13,9 +13,10 @@ from utils import restful, safeutils
 from .models import FrontUser
 from exts import db
 import config
-from ..models import BannerModel, BoardModel, PostModel, CommentModel
+from ..models import BannerModel, BoardModel, PostModel, CommentModel, HighlightPostModel
 from .decorators import login_required
 from flask_paginate import Pagination, get_page_parameter
+from sqlalchemy.sql import func
 
 bp = Blueprint('front', __name__)
 
@@ -26,18 +27,35 @@ def index():
     board_id = request.args.get("bd", type=int, default=None)
     # print(board_id)
     page = request.args.get(get_page_parameter(), type=int, default=1)
+    sort = request.args.get("st",type=int,default=1)
     banners = BannerModel.query.order_by(BannerModel.priority.desc()).limit(4)
     boards = BoardModel.query.all()
     start = (page - 1) * config.PER_PAGE
     end = start + config.PER_PAGE
     posts = None
     total = 0
+
+    query_obj = None
+    if sort == 1:
+        query_obj = PostModel.query.order_by(PostModel.create_time.desc())
+    elif sort == 2:
+        # 按加精时间倒叙
+        query_obj = db.session.query(PostModel).outerjoin(HighlightPostModel).\
+            order_by(HighlightPostModel.create_time.desc(),PostModel.create_time.desc())
+    elif sort == 3:
+        # 点赞数
+        query_obj = PostModel.query.order_by(PostModel.create_time.desc())
+    elif sort == 4:
+        # 评论数
+        query_obj = db.session.query(PostModel).outerjoin(CommentModel).\
+            group_by(PostModel.id).order_by(func.count(CommentModel.id).desc(),PostModel.create_time.desc())
+
     if board_id:
-        query_obj = PostModel.query.filter_by(board_id=board_id)
+        query_obj = query_obj.filter(PostModel.board_id==board_id)
         posts = query_obj.slice(start, end)
         total = query_obj.count()
     else:
-        posts = PostModel.query.slice(start, end)
+        posts = query_obj.slice(start, end)
         total = PostModel.query.count()
     pagination = Pagination(bs_version=3, page=page, total=total, outer_window=1, inner_window=2)
     # 将键值对解析成关键字参数
@@ -46,7 +64,8 @@ def index():
         "boards": boards,
         "posts": posts,
         "pagination": pagination,
-        "current_board": board_id
+        "current_board": board_id,
+        "current_sort": sort
     }
     return render_template('front/front_index.html', **context)
 

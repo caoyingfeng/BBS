@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9198b51a-5f61-4862-818d-d7286f5077a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/cms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cms/cms_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cms/cms_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/front/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/front/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/front_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/front_index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="38" column="62" lean-forward="true" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+            <state relative-caret-position="344">
+              <caret line="37" column="61" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -27,40 +28,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/cms/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
-              <folding>
-                <element signature="e#0#102#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/cms/cms_posts.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/cms/js/posts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/front/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1042">
-              <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+            <state relative-caret-position="330">
+              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
               <folding>
                 <element signature="e#0#124#0" expanded="true" />
               </folding>
@@ -69,39 +40,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/front/front_pdetail.html">
+        <entry file="file://$PROJECT_DIR$/apps/cms/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/front/css/front_pdetail.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="69" column="19" lean-forward="true" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/front/js/front_pdetail.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/front/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="190">
+              <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,6 +59,15 @@
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/front/front_index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -185,25 +138,25 @@
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/templates/front/front_404.html" />
         <option value="$PROJECT_DIR$/apps/front/hooks.py" />
-        <option value="$PROJECT_DIR$/templates/front/front_index.html" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/apps/front/forms.py" />
         <option value="$PROJECT_DIR$/utils/restful.py" />
-        <option value="$PROJECT_DIR$/apps/front/views.py" />
         <option value="$PROJECT_DIR$/static/front/js/front_pdetail.js" />
         <option value="$PROJECT_DIR$/templates/front/front_base.html" />
         <option value="$PROJECT_DIR$/templates/front/front_pdetail.html" />
         <option value="$PROJECT_DIR$/static/front/css/front_pdetail.css" />
         <option value="$PROJECT_DIR$/apps/models.py" />
-        <option value="$PROJECT_DIR$/apps/cms/views.py" />
         <option value="$PROJECT_DIR$/static/cms/js/posts.js" />
         <option value="$PROJECT_DIR$/templates/cms/cms_posts.html" />
+        <option value="$PROJECT_DIR$/apps/cms/views.py" />
+        <option value="$PROJECT_DIR$/apps/front/views.py" />
+        <option value="$PROJECT_DIR$/templates/front/front_index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="528" />
-    <option name="y" value="65" />
+    <option name="x" value="480" />
+    <option name="y" value="36" />
     <option name="width" value="1320" />
     <option name="height" value="825" />
   </component>
@@ -215,6 +168,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,19 +226,12 @@
               <item name="BBS" type="b2602c69:ProjectViewProjectNode" />
               <item name="BBS" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BBS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BBS" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="front" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -476,23 +423,23 @@
       <workItem from="1559402038198" duration="1257000" />
       <workItem from="1559434759873" duration="9643000" />
       <workItem from="1559461605236" duration="12498000" />
-      <workItem from="1559479964194" duration="5490000" />
+      <workItem from="1559479964194" duration="7005000" />
+      <workItem from="1559558205937" duration="4756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205869000" />
+    <option name="totallyTimeSpent" value="212140000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="528" y="65" width="1320" height="825" extended-state="0" />
-    <editor active="true" />
+    <frame x="542" y="113" width="1320" height="825" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17425431" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17739403" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32902297" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19971265" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19971265" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37106016" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -516,7 +463,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BBS$views__1_.coverage" NAME="views (1) Coverage Results" MODIFIED="1558536674865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/front" />
     <SUITE FILE_PATH="coverage/BBS$alidayu.coverage" NAME="alidayu Coverage Results" MODIFIED="1558437941414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/BBS$bbs.coverage" NAME="bbs Coverage Results" MODIFIED="1559485637815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BBS$bbs.coverage" NAME="bbs Coverage Results" MODIFIED="1559560547851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BBS$views.coverage" NAME="views Coverage Results" MODIFIED="1558279033743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps/cms" />
     <SUITE FILE_PATH="coverage/BBS$manage.coverage" NAME="manage Coverage Results" MODIFIED="1558101119314" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -647,16 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/cms/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/front/js/front_apost.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -685,13 +622,6 @@
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/front_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="57" column="53" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -728,9 +658,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/front_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#ul#1;n#li#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#ul#1;n#li#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/front/css/front_pdetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="69" column="19" lean-forward="true" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/front_apost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/front/front_pdetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cms/cms_posts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/cms/js/posts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/front/js/front_pdetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/front/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
+        <state relative-caret-position="461">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -748,35 +731,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/front_base.html">
+    <entry file="file://$PROJECT_DIR$/apps/cms/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
+        <state relative-caret-position="190">
+          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
           <folding>
-            <element signature="n#style#0;n#span#1;n#ul#1;n#li#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#ul#1;n#li#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/front_pdetail.js">
+    <entry file="file://$PROJECT_DIR$/apps/cms/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/css/front_pdetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="69" column="19" lean-forward="true" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+        <state relative-caret-position="417">
+          <caret line="72" column="38" lean-forward="true" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="38" column="62" lean-forward="true" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+        <state relative-caret-position="344">
+          <caret line="37" column="61" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -785,49 +760,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/front/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1042">
-          <caret line="64" column="41" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+        <state relative-caret-position="330">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
           <folding>
             <element signature="e#0#124#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/front_apost.html">
+    <entry file="file://$PROJECT_DIR$/templates/front/front_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/cms/js/posts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/front_pdetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/cms/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
-          <folding>
-            <element signature="e#0#102#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cms/cms_posts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        <state relative-caret-position="450">
+          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
         </state>
       </provider>
     </entry>

@@ -65,7 +65,7 @@ def email_captcha():
 @permission_required(CMSPermission.POSTER)
 def posts():
     context = {
-        'posts':PostModel.query.all()
+        'posts':PostModel.query.order_by(PostModel.create_time.desc())
     }
     return render_template('cms/cms_posts.html',**context)
 
