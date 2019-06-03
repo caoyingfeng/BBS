@@ -14,7 +14,7 @@ $(function () {
        var content = ue.getContent();
        // console.log(title);
        // console.log(board_id);
-
+ 
        myajax.post({
            'url':'/apost/',
            'data':{
